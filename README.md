@@ -1,16 +1,18 @@
 # gleap_issue
 
-A new Flutter project.
+Video link https://files.fm/u/x52p9dae29
 
-## Getting Started
+Sample project demonstrating misc gleap errors on Flutter Web
 
-This project is a starting point for a Flutter application.
+Some error messages which are showing up:
 
-A few resources to get you started if this is your first Flutter project:
+- Web app stuck on loading, flutter stuck on "waiting for connection from debug service on Chrome"
+  Inside Chrome dev tools console there is huge error "Uncaught Error: Mismatched anonymous define() module: ...."
+Refreshing the page fixes the issue.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Sometimes app will start fine - however same message from above case is present in console and Gleap is not initialized, refreshing the page also fixes this
+- App will start fine however exception on Flutter side appears "TypeError: Cannot read properties of undefined (reading 'Gleap')"
+  There are multiple variations of this exception sometimes its property "Gleap" sometimes its any of the functions specified inside <script> in "index.html" like "on", "initialize", "open" etc.
+Again solution seems to be refreshing the page.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+None of the issues are present after Gleap is removed from pubspec.yaml
